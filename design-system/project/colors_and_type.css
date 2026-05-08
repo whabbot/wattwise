@@ -1,0 +1,223 @@
+/* ============================================================
+   Wattwise Design Tokens
+   Theme: Industrial Calm
+   ============================================================ */
+
+/* Fonts: IBM Plex Sans + IBM Plex Mono via Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ---------- Color: Core (ink/slate/stone neutrals) ---------- */
+  --ww-ink-900: #142132;
+  --ww-slate-800: #334155;
+  --ww-slate-600: #64748B;
+  --ww-stone-100: #F5F5F4;
+  --ww-white: #FFFFFF;
+  --ww-line-200: #E7E5E4;
+
+  /* ---------- Color: Brand / Action ---------- */
+  --ww-teal-600: #0F766E;
+  --ww-teal-500: #14B8A6;
+  --ww-teal-50:  #F0FDFA;
+  --ww-blue-600: #2563EB;
+
+  /* ---------- Color: Semantic ---------- */
+  --ww-green-600: #15803D;
+  --ww-amber-500: #D97706;
+  --ww-amber-50:  #FFFBEB;
+  --ww-red-600:   #DC2626;
+  --ww-rose-50:   #FFF1F2;
+
+  /* ---------- Semantic tokens (the addressable surface) ---------- */
+  /* Backgrounds */
+  --color-bg-canvas:        var(--ww-stone-100);
+  --color-bg-surface:       var(--ww-white);
+  --color-bg-subtle:        var(--ww-stone-100);
+  --color-bg-critical:      var(--ww-rose-50);
+  --color-bg-warning:       var(--ww-amber-50);
+  --color-bg-positive:      var(--ww-teal-50);
+
+  /* Text */
+  --color-text-primary:     var(--ww-ink-900);
+  --color-text-secondary:   var(--ww-slate-800);
+  --color-text-muted:       var(--ww-slate-600);
+  --color-text-on-action:   var(--ww-white);
+  --color-text-link:        var(--ww-blue-600);
+
+  /* Borders */
+  --color-border-subtle:    var(--ww-line-200);
+  --color-border-default:   #D6D3D1;
+  --color-border-strong:    var(--ww-slate-600);
+  --color-border-focus:     var(--ww-teal-600);
+
+  /* Action */
+  --color-action-primary:        var(--ww-teal-600);
+  --color-action-primary-hover:  #0B5F58;
+  --color-action-primary-press:  #094A45;
+  --color-action-highlight:      var(--ww-teal-500);
+
+  /* Status — central to Wattwise's trust model */
+  --color-status-exact:     var(--ww-blue-600);   /* system-truth, historical */
+  --color-status-estimated: var(--ww-amber-500);  /* representative rates */
+  --color-status-benchmark: var(--ww-slate-600);  /* peer comparison */
+  --color-status-anomaly:   var(--ww-red-600);
+  --color-status-review:    var(--ww-amber-500);
+  --color-status-healthy:   var(--ww-green-600);
+
+  /* Charts (chart palette tokens) */
+  --color-chart-baseline:   var(--ww-ink-900);
+  --color-chart-exact:      var(--ww-blue-600);
+  --color-chart-estimated:  var(--ww-amber-500);
+  --color-chart-savings:    var(--ww-green-600);
+  --color-chart-anomaly:    var(--ww-red-600);
+  --color-chart-grid:       var(--ww-line-200);
+
+  /* ---------- Typography ---------- */
+  --font-family-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  /* Type scale (size / line-height) */
+  --font-display-size: 40px;   --font-display-line: 48px;
+  --font-h1-size: 32px;        --font-h1-line: 40px;
+  --font-h2-size: 24px;        --font-h2-line: 32px;
+  --font-h3-size: 20px;        --font-h3-line: 28px;
+  --font-body-l-size: 18px;    --font-body-l-line: 28px;
+  --font-body-size: 16px;      --font-body-line: 24px;
+  --font-body-s-size: 14px;    --font-body-s-line: 20px;
+  --font-label-size: 13px;     --font-label-line: 18px;
+  --font-caption-size: 12px;   --font-caption-line: 16px;
+  --font-metric-xl-size: 40px; --font-metric-xl-line: 40px;
+  --font-metric-l-size: 28px;  --font-metric-l-line: 32px;
+
+  /* ---------- Spacing (8px base) ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 48px;
+  --space-9: 64px;
+
+  /* ---------- Radius ---------- */
+  --radius-card:   12px;
+  --radius-input:  10px;
+  --radius-pill:   999px;
+
+  /* ---------- Shadows (very restrained) ---------- */
+  --shadow-card:    0 1px 2px rgba(20, 33, 50, 0.04), 0 1px 1px rgba(20, 33, 50, 0.03);
+  --shadow-popover: 0 4px 12px rgba(20, 33, 50, 0.08), 0 1px 3px rgba(20, 33, 50, 0.06);
+
+  /* ---------- Motion ---------- */
+  --motion-fast:     120ms;
+  --motion-standard: 180ms;
+  --motion-emphasis: 240ms;
+  --motion-easing:   cubic-bezier(0.2, 0, 0, 1); /* standard ease-out, no bounce */
+
+  /* ---------- Layout ---------- */
+  --layout-max-width: 1440px;
+  --layout-gutter:    24px;
+  --layout-card-pad:  24px;
+}
+
+/* ============================================================
+   Element-level semantic styles
+   ============================================================ */
+
+html, body {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-body-size);
+  line-height: var(--font-body-line);
+  color: var(--color-text-primary);
+  background: var(--color-bg-canvas);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.ww-display {
+  font-size: var(--font-display-size); line-height: var(--font-display-line);
+  font-weight: var(--font-weight-semibold); letter-spacing: -0.01em;
+}
+h1, .ww-h1 {
+  font-size: var(--font-h1-size); line-height: var(--font-h1-line);
+  font-weight: var(--font-weight-semibold); letter-spacing: -0.01em;
+  color: var(--color-text-primary); margin: 0;
+}
+h2, .ww-h2 {
+  font-size: var(--font-h2-size); line-height: var(--font-h2-line);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary); margin: 0;
+}
+h3, .ww-h3 {
+  font-size: var(--font-h3-size); line-height: var(--font-h3-line);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary); margin: 0;
+}
+.ww-body-l {
+  font-size: var(--font-body-l-size); line-height: var(--font-body-l-line);
+  font-weight: var(--font-weight-regular);
+}
+p, .ww-body {
+  font-size: var(--font-body-size); line-height: var(--font-body-line);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary); margin: 0;
+}
+.ww-body-s {
+  font-size: var(--font-body-s-size); line-height: var(--font-body-s-line);
+}
+.ww-label {
+  font-size: var(--font-label-size); line-height: var(--font-label-line);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+}
+.ww-caption {
+  font-size: var(--font-caption-size); line-height: var(--font-caption-line);
+  color: var(--color-text-muted);
+}
+.ww-metric-xl {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-metric-xl-size); line-height: var(--font-metric-xl-line);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  letter-spacing: -0.01em;
+}
+.ww-metric-l {
+  font-size: var(--font-metric-l-size); line-height: var(--font-metric-l-line);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+/* Mono — for rates, timestamps, kWh, tariff codes, diagnostics */
+code, kbd, samp, .ww-mono {
+  font-family: var(--font-family-mono);
+  font-feature-settings: "tnum" 1, "lnum" 1, "zero" 1;
+}
+
+a, .ww-link {
+  color: var(--color-text-link);
+  text-decoration: none;
+  text-underline-offset: 2px;
+  transition: color var(--motion-fast) var(--motion-easing);
+}
+a:hover, .ww-link:hover { text-decoration: underline; }
+
+*:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

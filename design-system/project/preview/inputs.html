@@ -1,0 +1,50 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_preview.css">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  body { font-family:'IBM Plex Sans', sans-serif; }
+  .field { display:flex; flex-direction:column; gap:6px; }
+  .lbl { font-size:13px; font-weight:500; color:#334155; }
+  .help { font-size:12px; color:#64748B; }
+  .input { height:40px; padding:0 12px; border:1px solid #D6D3D1; border-radius:10px; background:#fff; font-size:14px; font-family:inherit; color:#142132; }
+  .input:focus { outline:2px solid #0F766E; outline-offset:1px; border-color:#0F766E; }
+  .input-with-suffix { display:flex; align-items:center; border:1px solid #D6D3D1; border-radius:10px; background:#fff; }
+  .input-with-suffix input { border:none; outline:none; padding:0 12px; height:38px; flex:1; font-size:14px; background:transparent; color:#142132; font-family:'IBM Plex Mono',monospace; }
+  .input-with-suffix .sfx { padding:0 12px; font-family:'IBM Plex Mono',monospace; font-size:13px; color:#64748B; border-left:1px solid #E7E5E4; height:38px; display:flex; align-items:center; }
+  .seg { display:inline-flex; padding:3px; background:#F5F5F4; border-radius:10px; gap:2px; }
+  .seg button { border:none; background:transparent; padding:6px 14px; font-size:13px; font-weight:500; color:#64748B; border-radius:8px; cursor:pointer; font-family:inherit; }
+  .seg button.on { background:#fff; color:#142132; box-shadow: 0 1px 2px rgba(20,33,50,0.06); }
+</style></head>
+<body>
+<div class="pv-pad">
+  <div class="pv-label" style="margin-bottom:14px">Inputs · labels always visible · units adjacent · plain-English validation</div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
+    <div class="field">
+      <label class="lbl">Unit rate</label>
+      <div class="input-with-suffix">
+        <input value="28.42" />
+        <span class="sfx">p/kWh</span>
+      </div>
+      <span class="help">Excluding VAT</span>
+    </div>
+    <div class="field">
+      <label class="lbl">Standing charge</label>
+      <div class="input-with-suffix">
+        <input value="0.61" />
+        <span class="sfx">£/day</span>
+      </div>
+      <span class="help">Daily fixed charge</span>
+    </div>
+    <div class="field">
+      <label class="lbl">Tariff name</label>
+      <input class="input" value="FIX12M-STD-2026-04" />
+      <span class="help">Use the code printed on your bill</span>
+    </div>
+    <div class="field">
+      <label class="lbl">Density</label>
+      <div class="seg"><button class="on">Comfortable</button><button>Compact</button></div>
+      <span class="help">Affects table row height</span>
+    </div>
+  </div>
+</div>
+</body></html>

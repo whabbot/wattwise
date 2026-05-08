@@ -1,0 +1,245 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_preview.css">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#142132; --teal:#0F766E; --teal-light:#14B8A6;
+    --stone:#F5F5F4; --line:#E7E5E4; --slate:#64748B; --white:#fff;
+  }
+  body { font-family:'IBM Plex Sans',sans-serif; color:var(--ink); }
+  .grid { display:grid; grid-template-columns: 1.1fr 1fr; gap:16px; }
+  .panel {
+    background:var(--white); border:1px solid var(--line); border-radius:12px;
+    padding:24px; display:flex; flex-direction:column; gap:16px;
+  }
+  .panel.dark { background:var(--ink); border-color:var(--ink); }
+  .panel-label {
+    font-size:11px; color:var(--slate); letter-spacing:0.04em;
+    font-family:'IBM Plex Mono',monospace; text-transform:uppercase;
+  }
+  .panel.dark .panel-label { color:#7A8AA0; }
+  .lockup { display:flex; align-items:center; gap:12px; }
+  .word { font-size:28px; font-weight:600; letter-spacing:-0.015em; color:var(--ink); }
+  .word .watt { color:var(--teal); font-weight:600; }
+  .word .wise { font-weight:400; color:var(--slate); }
+  .panel.dark .word { color:var(--white); }
+  .panel.dark .word .watt { color:var(--teal-light); }
+  .panel.dark .word .wise { color:#9AAFC4; }
+
+  .swatches { display:flex; gap:8px; flex-wrap:wrap; }
+  .chip {
+    height:28px; padding:0 10px; border-radius:999px;
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--slate);
+    background:var(--stone); border:1px solid var(--line);
+  }
+  .chip .dot { width:10px; height:10px; border-radius:2px; }
+
+  .scale-row { display:flex; align-items:flex-end; gap:24px; padding:8px 0; }
+  .scale-row .label {
+    font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--slate);
+    text-align:center; margin-top:6px;
+  }
+
+  .caption { font-size:12px; color:var(--slate); line-height:1.5; }
+  .caption b { color:var(--ink); font-weight:600; }
+  .panel.dark .caption b { color:var(--white); }
+
+  .hero {
+    display:flex; flex-direction:column; align-items:flex-start; gap:24px;
+    padding:36px 24px 28px;
+  }
+  .hero .lockup .word { font-size:40px; }
+</style>
+</head>
+<body>
+<div class="pv-pad">
+  <div class="pv-label" style="margin-bottom:14px">Logo · Wattwise mark + wordmark</div>
+
+  <!--
+    SVG SYMBOL
+    The "glass" of the bulb is drawn as a brain silhouette: bumpy gyri along the
+    top and sides, a central vertical fissure (teal), narrowing into a screw base.
+    viewBox 0 0 64 64.
+  -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+
+      <!-- Full mark: smooth bulb glass + screw base, with a teal cartoon brain as filament -->
+      <symbol id="ww-mark" viewBox="0 0 64 64">
+        <!-- Smooth ovoid bulb glass with neck into screw base -->
+        <path d="M32 6
+                 C 22 6, 14.5 13.5, 14.5 23
+                 C 14.5 29, 17.5 33.5, 21 37
+                 C 23.5 39.5, 24.5 41, 24.5 43.5
+                 L 24.5 47
+                 L 39.5 47
+                 L 39.5 43.5
+                 C 39.5 41, 40.5 39.5, 43 37
+                 C 46.5 33.5, 49.5 29, 49.5 23
+                 C 49.5 13.5, 42 6, 32 6 Z"
+              fill="none" stroke="currentColor" stroke-width="2.25" stroke-linejoin="round"/>
+
+        <!-- Screw base ridges -->
+        <line x1="25.5" y1="51" x2="38.5" y2="51" stroke="currentColor" stroke-width="2.25" stroke-linecap="round"/>
+        <line x1="26.5" y1="55" x2="37.5" y2="55" stroke="currentColor" stroke-width="2.25" stroke-linecap="round"/>
+        <!-- Contact tip -->
+        <path d="M 28.5 58.5 L 32 61.5 L 35.5 58.5" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <!-- Teal cartoon brain (side profile, facing left) tucked inside the glass -->
+        <g stroke="var(--ww-accent, #0F766E)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Brain outer silhouette: lumpy top (3 cortex bumps), rounded front/back, small cerebellum stem dangle at bottom-back -->
+          <path d="M 22 36
+                   C 18.5 34, 17 30, 18 26
+                   C 17 23, 18.5 20, 20.5 19
+                   C 19 16, 21 13, 24 13.5
+                   C 25 11, 28.5 10.5, 30.5 13
+                   C 32 10.5, 36 10.5, 37.5 13.5
+                   C 39.5 11, 43 12, 43.5 15
+                   C 46 15.5, 47 19, 45.5 21
+                   C 47 23.5, 46.5 27, 44.5 28
+                   C 45 31, 43 33.5, 40.5 33.5
+                   C 40.5 36, 38 37, 37 36
+                   L 36.5 39
+                   C 36.5 41, 34.5 41.5, 33.5 40
+                   L 33 36
+                   C 31 37, 27 37, 25 35.5
+                   C 23.5 36.5, 22.5 36.5, 22 36 Z"/>
+
+          <!-- Inner folds: short C-shaped squiggles to read as gyri -->
+          <!-- Top row (frontal/parietal lobes) -->
+          <path d="M 24 16 C 22.5 17.5, 22.5 19.5, 24 21"/>
+          <path d="M 28 14 C 26.5 16, 27 18.5, 29 19.5"/>
+          <path d="M 32 14.5 C 30.5 16, 30.5 18, 32 19.5"/>
+          <path d="M 36 14.5 C 34.5 16, 34.5 18.5, 36 20"/>
+          <path d="M 40 16 C 38.5 17.5, 39 20, 40.5 21"/>
+          <!-- Middle row -->
+          <path d="M 22 22.5 C 24 23, 25 25, 24 26.5"/>
+          <path d="M 27 22 C 28.5 23.5, 28 26, 26 26.5"/>
+          <path d="M 31 22 C 32.5 23.5, 32 26, 30 27"/>
+          <path d="M 36 22 C 37.5 23.5, 37 26, 35 27"/>
+          <path d="M 41 22.5 C 42.5 24, 42 26.5, 40 27.5"/>
+          <!-- Lower row -->
+          <path d="M 22.5 29 C 24.5 29.5, 25.5 31.5, 24.5 33"/>
+          <path d="M 28 29 C 29.5 30.5, 29 33, 27 34"/>
+          <path d="M 33 29.5 C 34.5 31, 34 33, 32 33.5"/>
+          <path d="M 38 29 C 39.5 30.5, 39 33, 37 33.5"/>
+        </g>
+      </symbol>
+
+      <!-- Compact mark for very small sizes (≤16px): keep the bulb + a simplified solid teal brain blob -->
+      <symbol id="ww-mark-sm" viewBox="0 0 64 64">
+        <path d="M32 6
+                 C 22 6, 14.5 13.5, 14.5 23
+                 C 14.5 29, 17.5 33.5, 21 37
+                 C 23.5 39.5, 24.5 41, 24.5 43.5
+                 L 24.5 47
+                 L 39.5 47
+                 L 39.5 43.5
+                 C 39.5 41, 40.5 39.5, 43 37
+                 C 46.5 33.5, 49.5 29, 49.5 23
+                 C 49.5 13.5, 42 6, 32 6 Z"
+              fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/>
+        <line x1="25.5" y1="51" x2="38.5" y2="51" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="26.5" y1="55" x2="37.5" y2="55" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+        <!-- Simplified brain blob (side profile silhouette) -->
+        <path d="M 22 36
+                 C 18 34, 16.5 29, 18 25
+                 C 17 21, 19.5 17, 23 16
+                 C 25 12, 30 11, 32 14
+                 C 35 11, 40 12, 42 16
+                 C 46 17, 48 22, 46 25
+                 C 48 29, 46 33, 42 34
+                 C 41 38, 36 39, 35 41
+                 C 35 43, 32 43, 32 41
+                 C 30 38, 26 38, 24 36
+                 C 23 36.5, 22.5 36.5, 22 36 Z"
+              fill="var(--ww-accent, #0F766E)" stroke="none"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- HERO -->
+  <div class="panel hero" style="margin-bottom:16px">
+    <div class="panel-label">Primary lockup</div>
+    <div class="lockup" style="--ww-accent:#0F766E; color:#142132">
+      <svg width="72" height="72"><use href="#ww-mark"/></svg>
+      <span class="word"><span class="watt">Watt</span><span class="wise">wise</span></span>
+    </div>
+    <div class="caption" style="max-width:560px">
+      <b>Concept.</b> A lightbulb (watt — energy, measurement) with a cartoon brain inside in place of the filament (wise — interpretation, judgment). The bulb shell stays a recognisable bulb at every size; the teal brain carries the meaning.
+    </div>
+  </div>
+
+  <!-- VARIANTS GRID -->
+  <div class="grid" style="margin-bottom:16px">
+    <!-- Horizontal lockup, default -->
+    <div class="panel">
+      <div class="panel-label">Horizontal · default on white</div>
+      <div class="lockup" style="--ww-accent:#0F766E; color:#142132">
+        <svg width="44" height="44"><use href="#ww-mark"/></svg>
+        <span class="word" style="font-size:24px"><span class="watt">Watt</span><span class="wise">wise</span></span>
+      </div>
+    </div>
+
+    <!-- Reversed -->
+    <div class="panel dark">
+      <div class="panel-label">Reversed · on ink-900</div>
+      <div class="lockup" style="--ww-accent:#14B8A6; color:#FFFFFF">
+        <svg width="44" height="44"><use href="#ww-mark"/></svg>
+        <span class="word" style="font-size:24px"><span class="watt">Watt</span><span class="wise">wise</span></span>
+      </div>
+    </div>
+
+    <!-- Monochrome ink -->
+    <div class="panel">
+      <div class="panel-label">Monochrome · ink-900</div>
+      <div class="lockup" style="--ww-accent:#142132; color:#142132">
+        <svg width="44" height="44"><use href="#ww-mark"/></svg>
+        <span class="word" style="font-size:24px"><span class="watt">Watt</span><span class="wise">wise</span></span>
+      </div>
+    </div>
+
+    <!-- App icon / favicon container -->
+    <div class="panel">
+      <div class="panel-label">App icon · ink-900 tile</div>
+      <div style="display:flex; gap:16px; align-items:flex-end;">
+        <div style="width:72px; height:72px; background:#142132; border-radius:14px; display:flex; align-items:center; justify-content:center; --ww-accent:#14B8A6; color:#FFFFFF;">
+          <svg width="48" height="48"><use href="#ww-mark"/></svg>
+        </div>
+        <div style="width:36px; height:36px; background:#142132; border-radius:8px; display:flex; align-items:center; justify-content:center; --ww-accent:#14B8A6; color:#FFFFFF;">
+          <svg width="26" height="26"><use href="#ww-mark-sm"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCALE -->
+  <div class="panel" style="margin-bottom:16px">
+    <div class="panel-label">Scale · 16 / 24 / 32 / 48 / 72 px</div>
+    <div class="scale-row" style="--ww-accent:#0F766E; color:#142132">
+      <div style="text-align:center"><svg width="16" height="16"><use href="#ww-mark-sm"/></svg><div class="label">16</div></div>
+      <div style="text-align:center"><svg width="24" height="24"><use href="#ww-mark"/></svg><div class="label">24</div></div>
+      <div style="text-align:center"><svg width="32" height="32"><use href="#ww-mark"/></svg><div class="label">32</div></div>
+      <div style="text-align:center"><svg width="48" height="48"><use href="#ww-mark"/></svg><div class="label">48</div></div>
+      <div style="text-align:center"><svg width="72" height="72"><use href="#ww-mark"/></svg><div class="label">72</div></div>
+    </div>
+    <div class="caption">At 16px the brain folds collapse to a solid teal blob inside the bulb so the silhouette still reads.</div>
+  </div>
+
+  <!-- COLORWAYS / PALETTE -->
+  <div class="panel" style="margin-bottom:16px">
+    <div class="panel-label">Color use</div>
+    <div class="swatches">
+      <span class="chip"><span class="dot" style="background:#142132"></span>ink-900 · bulb glass + screw</span>
+      <span class="chip"><span class="dot" style="background:#0F766E"></span>teal-600 · brain (light surfaces)</span>
+      <span class="chip"><span class="dot" style="background:#14B8A6"></span>teal-500 · brain (dark surfaces)</span>
+      <span class="chip"><span class="dot" style="background:#FFFFFF; border:1px solid #E7E5E4"></span>white · reversed mark</span>
+    </div>
+  </div>
+
+  <div class="caption" style="margin-top:4px">
+    <b>Notes.</b> Drawn in a 64px viewBox at 2.25px stroke for the bulb and 1.8px for the brain. The brain is a side-profile cartoon: lumpy cortex along the top, small cerebellum stem at the bottom, and 14 short C-shaped gyrus folds. A simplified solid-blob silhouette kicks in at ≤16px so it never turns to mush.
+  </div>
+</div>
+</body></html>

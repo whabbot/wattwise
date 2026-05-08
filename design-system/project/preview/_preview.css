@@ -1,0 +1,20 @@
+/* Preview-card shared chrome.
+   Cards are 700×<height>; show the artifact directly with no titles/framing. */
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #FFFFFF;
+  font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+  color: #142132;
+  -webkit-font-smoothing: antialiased;
+}
+.pv-pad { padding: 24px; }
+.pv-row { display: flex; gap: 12px; align-items: stretch; }
+.pv-col { display: flex; flex-direction: column; gap: 8px; }
+.pv-grid { display: grid; gap: 12px; }
+.pv-mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-feature-settings: "tnum" 1, "lnum" 1; }
+.pv-label { font-size: 11px; line-height: 14px; color: #64748B; font-weight: 500; letter-spacing: 0.01em; }
+.pv-tiny  { font-size: 10px; line-height: 14px; color: #94A3B8; }
+.pv-name  { font-size: 13px; line-height: 18px; color: #142132; font-weight: 500; }
+.pv-hex   { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #64748B; letter-spacing: 0; }
